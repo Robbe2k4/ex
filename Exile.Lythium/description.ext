@@ -1,0 +1,126 @@
+#define true 1
+#define false 0
+
+///////////////////////////////////////////////////////////////////////////////
+// Server Settings - Modify at will
+///////////////////////////////////////////////////////////////////////////////
+author = "Cantankerous Old Goats";
+onLoadName = "Exile Lythium";
+onLoadMission= "cantankerousoldgoats.enjin.com";
+loadScreen = "cog_logo.paa";
+disableChannels[] = {0, 2};
+OnLoadIntro = "";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+
+class Header
+{
+    gameType = Survive; // Do NOT change this
+    minPlayers = 1;
+    maxPlayers = 60;
+};
+
+class CfgSounds
+{
+  sounds[] = {fanfare,bambikill,playerkill,teamkill};
+	class fanfare
+	{
+		name = "fanfare";
+		sound[] = {"sound\fanfare.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bambikill
+	{
+		name = "bambikill";
+		sound[] = {"sound\bk.ogg", 25, 1};
+		titles[] = {};
+	};
+	class playerkill
+	{
+		name = "playerkill";
+		sound[] = {"sound\pk.ogg", 25, 1};
+		titles[] = {};
+	};
+	class teamkill
+	{
+		name = "teamkill";
+		sound[] = {"sound\tk.ogg", 1, 1};
+		titles[] = {};
+	};
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Exile Settings - Do not change these!
+///////////////////////////////////////////////////////////////////////////////
+forceRotorLibSimulation = 2;
+skipLobby = 1;
+joinUnassigned = 1;
+respawn = "BASE";
+respawnDelay = 120;
+respawnDialog = 0;
+respawnOnStart = 0;
+respawnButton = 1;
+respawnTemplates[] = {"Exile"};
+corpseManagerMode = 0;
+corpseLimit = 20;
+corpseRemovalMinTime = 1800;
+corpseRemovalMaxTime = 3600;
+wreckManagerMode = 0;
+wreckLimit = 2;
+wreckRemovalMinTime = 60;
+wreckRemovalMaxTime = 360;
+scriptedPlayer = 1;
+disabledAI = 1;
+enableItemsDropping = 0;
+briefing = 0;
+debriefing = 0;
+allowFunctionsLog = 1;
+enableDebugConsole = 0;
+allowFunctionsRecompile = 0;
+showSquadRadar = 0;
+showUAVFeed = 0;
+reviveDelay = 6;
+reviveForceRespawnDelay = 3;
+reviveBleedOutDelay = 120;
+
+showHUD[] =
+{
+    true,		// Scripted HUD (same as showHUD command)
+    true,		// Vehicle + soldier info
+    true,		// Vehicle radar
+    true,		// Vehicle compass
+    true,		// Tank direction indicator
+    true,		// Commanding menu
+    false,	// Group Bar
+    true,		// HUD Weapon Cursors
+    true		// Squad Radar <-- This option is now Vehicle Panel (Required for GPS)
+};
+
+class CfgFunctions
+{
+	#include "ExAdClient\CfgFunctions.cpp"
+};
+
+class CfgHints
+{
+	#include "ExAdClient\CfgHints.cpp"
+};
+
+class CfgNetworkMessages
+{
+	#include "ExAdClient\CfgNetworkMessages.cpp"
+};
+
+class RscTitles
+{
+	#include "addons\StatusBar\statusBar.hpp"
+	#include "ExAdClient\RscTitles.cpp"
+	#include "VEMFr_client\gui\RscDisplayVEMFrClient.hpp"
+	#include "VEMFr_client\gui\RscDisplayBaseAttack.hpp"
+};
+
+#include "config.cpp"
+#include "CfgRemoteExec.hpp"
+#include "infiSTAR_AdminMenu.hpp"
+#include "ExAdClient\ExAd.cpp"
+#include "R3F_LOG\desc_include.h"
